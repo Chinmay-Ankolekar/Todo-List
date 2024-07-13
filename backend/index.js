@@ -11,6 +11,14 @@ app.use(express.json());
 
 //create a todo
 
+app.get("/", async (req, res) => {
+    try {
+        res.json("Welcome to the todo app")
+    } catch(err) {
+        console.log(err.message);
+    }
+})
+
 app.post("/todos", async (req, res)=> {
     try {
       const {description} = req.body;
