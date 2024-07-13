@@ -34,9 +34,12 @@ app.post("/todos", async (req, res)=> {
 app.get("/todos", async(req,res)=>{
     try {
        const allTodos = await db.pool.query("SELECT * FROM todo")
+       if(allTodos.rows.length === 0) {
+           return res.json("No todos")
+       }
        res.json(allTodos.rows)
     }catch(err) {
-        console.log(err.message);
+        res.json(err.message)
      }
 })
 

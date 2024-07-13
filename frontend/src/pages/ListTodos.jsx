@@ -7,7 +7,7 @@ function ListTodos() {
 
   const deleteTodo = async (id) => {
         try {
-            const deleteTodo = await fetch(`http://localhost:3000/todos/${id}`,{
+            const deleteTodo = await fetch(`https://todo-list-backend-ebon-delta.vercel.app/todos/${id}`,{
                 method : "DELETE"
             } );
             setTodos(todos.filter ( todo => todo.todo_id !== id))
@@ -18,7 +18,7 @@ function ListTodos() {
 
   const getTodos = async () => {
     try {
-      const response = await fetch("http://localhost:3000/todos");
+      const response = await fetch("https://todo-list-backend-ebon-delta.vercel.app/todos");
       const jsonData = await response.json();
 
       setTodos(jsonData);
