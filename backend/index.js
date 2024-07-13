@@ -3,7 +3,7 @@ const cors = require('cors');
 const app = express();
 const db = require("./db");
 
-
+require('dotenv').config()
 app.use(cors());
 app.use(express.json());
 
@@ -54,7 +54,4 @@ app.delete("/todos/:id", async (req,res )=> {
      }
 })
 
-app.listen(3000, () => {
-    db.initDatabase()
-    console.log("listening")
-})
+app.listen(process.env.PORT, () => console.log("Server is running on port 5000"))
